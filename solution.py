@@ -12,9 +12,9 @@ import re
 import hashlib
 
 
-MODEL_DIR = "model_weights/qwen2_7b_instruct"
-EMBEDDING_DIR = "model_weights/paraphrase_multilingual_MiniLM_L12_v2"
-KB_PATH = "workspace/kb/kb.json"
+MODEL_DIR = "your_model_dir/qwen2_7b_instruct"
+EMBEDDING_DIR = "your_model_dir/paraphrase_multilingual_MiniLM_L12_v2"
+KB_PATH = "your_model_dir/kb.json"
 
 
 print("Загрузка моделей...")
