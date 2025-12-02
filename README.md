@@ -8,7 +8,7 @@
 Что внутри
 
  • LLM: локально запущенный Qwen2-7B-Instruct в 4-bit квантовании (BitsAndBytes, device_map="auto"),
-inference идёт целиком оффлайн по локальным весам.
+inference идёт по весам.
 
  • RAG-слой:
  
