@@ -61,3 +61,12 @@ inference идёт по весам.
 Текущий бейзлайн — стартовый шаблон, построенный на Qwen2-7B-Instruct и FAISS, показывает F1 в диапазоне 0.3–0.55. Это примерно 40–55% качества от SOTA, значит требует доработки пайплайна, KB и порогов.
 
 Цель репозитория — быстрый старт и дальнейшие эксперименты с улучшением F1-score, особенно для задач Churn/ID/QA в ML.
+
+## 🧠 Model Setup (No Internet Required)
+
+This  prototype supports LLM and embedding logic using the following locally stored models:
+
+- [Qwen 2 7B Instruct](chatgpt://generic-entity?number=0) 
+- [paraphrase-multilingual-MiniLM-L12-v2](chatgpt://generic-entity?number=1) → provides multilingual paraphrase embeddings for intent understanding 
+
+The models must be downloaded separately via download_models.sh and mounted into the container using -v ./models:/app/models.
