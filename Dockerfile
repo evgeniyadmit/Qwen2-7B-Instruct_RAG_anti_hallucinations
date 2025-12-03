@@ -1,21 +1,16 @@
 FROM cr.yandex/crp2q2b12lka2f8enigt/pytorch/pytorch:2.8.0-cuda12.6-cudnn9-runtime
 
+WORKDIR /app
 
-# ===== Рабочая директория =====
-WORKDIR /workspace
-
-# ===== Копируем весь репозиторий (код + веса в LFS) =====
-COPY . /workspace
-
-# ===== Оффлайн и стабильность =====
-ENV TRANSFORMERS_OFFLINE=1 \
-    HF_HUB_OFFLINE=1 \
-    TOKENIZERS_PARALLELISM=false \
-    PYTHONUNBUFFERED=1
-
-# ===== Устанавливаем зависимости =====
-# (requirements.txt должен лежать в корне репо)
+# Установка зависимостей
+COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# ===== Запуск =====
+# Копируем проект
+COPY . /app
+
+# Создаём папки для моделей и выходных логов
+RUN mkdir -p /app/models /app/outputs
+
+# CMD запускает основной файл
 CMD ["python", "solution.py"]
